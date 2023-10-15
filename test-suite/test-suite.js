@@ -542,6 +542,7 @@ describe("Engine.IO protocol", () => {
 
       socket.send("4hello");
 
+      await waitFor(socket, "message"); // 3probe
       const { data } = await waitFor(socket, "message");
 
       expect(data).to.eql("4hello");
@@ -566,6 +567,7 @@ describe("Engine.IO protocol", () => {
 
       socket.send("4hello");
 
+      await waitFor(socket, "message"); // 3probe
       const { data } = await waitFor(socket, "message");
 
       expect(data).to.eql("4hello");
